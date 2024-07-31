@@ -62,6 +62,7 @@ if not os.path.exists(model_file):
     print(f'Mean Squared Error: {mse:.2f}')
 else:
     model = joblib.load(model_file)
-    single_record = np.array([[805, 909]]) # from 08-05 to 09-09
-    prediction = model.predict(single_record)
-    print(prediction)
+    for i in list(range(805, 832)) + list(range(901, 931)) + list(range(1001, 1032)) + list(range(1101, 1131)) + list(range(1201, 1232)):
+        single_record = np.array([[804, i]])
+        prediction = model.predict(single_record)
+        print(i, prediction)
